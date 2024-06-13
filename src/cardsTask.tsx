@@ -31,8 +31,8 @@ export const CardsTask : React.FC<taskProps> = (props)  => {
             <div className="flex justify-between w-full">
                 <p>statut : {props.status? "Terminé" : "En cours"}</p>
                 <Group>
-                    <Button onClick={(e) => changeStatus(props.id,props.taskList)}>Terminer</Button>
-                    <Button onClick={(e) => suppr(props.id, props.taskList)}>Supprimer</Button>
+                    <Button onClick={() => changeStatus(props.id,props.taskList)}>Terminer</Button>
+                    <Button onClick={() => suppr(props.id, props.taskList)}>Supprimer</Button>
                 </Group>
             </div>
         </div>
