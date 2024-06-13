@@ -1,4 +1,4 @@
-import { Button } from "@mantine/core"
+import { Button, Group } from "@mantine/core"
 import { task } from "./App"
 
 type taskProps = {
@@ -26,13 +26,15 @@ export const CardsTask : React.FC<taskProps> = (props)  => {
     }
 
     return(
-        <div className="border flex justify-between items-center px-2">
-            <div className="flex flex-col">
+        <div className="border flex flex-col justify-between items-center px-2">
                 <p>{props.description}</p>
+            <div className="flex justify-between w-full">
                 <p>statut : {props.status? "Terminé" : "En cours"}</p>
+                <Group>
+                    <Button onClick={(e) => changeStatus(props.id,props.taskList)}>Terminer</Button>
+                    <Button onClick={(e) => suppr(props.id, props.taskList)}>Supprimer</Button>
+                </Group>
             </div>
-            <Button onClick={(e) => changeStatus(props.id,props.taskList)}>Terminer</Button>
-            <Button onClick={(e) => suppr(props.id, props.taskList)}>Supprimer</Button>
         </div>
     )
 }

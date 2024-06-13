@@ -37,7 +37,7 @@ export function App() {
 
   return (
    <div>
-      <Group className='flex w-fit mx-auto mt-10'>
+      <Group className='flex w-fit mx-auto my-10'>
         <Input id="input" className='border' placeholder="Nouvelle tâche" onChange={(e) => inputChange(e.currentTarget.value)}></Input>
         <Button onClick={(e) => addTaskList(inputValue as string)}>Ajouter Tâche</Button>
       </Group>
