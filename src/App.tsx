@@ -23,21 +23,26 @@ export function App() {
     taskTabInt.push(task)
     setTaskList(taskTabInt)
     setInputValue("")
+    const input: HTMLInputElement = document.getElementById("input") as HTMLInputElement
+    input.value = ""
   }
 
   function inputChange(input: string): void {
     setInputValue(input)
   }
 
+  function changeTaskList(newTaskList: Array<task>): void{
+    setTaskList(newTaskList)
+  }
 
   return (
    <div>
       <Group className='flex w-fit mx-auto mt-10'>
-        <Input className='border' placeholder="Nouvelle tâche" onChange={(e) => inputChange(e.currentTarget.value)}></Input>
+        <Input id="input" className='border' placeholder="Nouvelle tâche" onChange={(e) => inputChange(e.currentTarget.value)}></Input>
         <Button onClick={(e) => addTaskList(inputValue as string)}>Ajouter Tâche</Button>
       </Group>
       <Container size="xs">
-        {tasklist.map((e, index) =><CardsTask key={index} description={e.description} status={e.status}></CardsTask> )}
+        {tasklist.map((e, index) =><CardsTask key={index} changeTaskList={changeTaskList} taskList={tasklist} id={e.id} description={e.description} status={e.status}></CardsTask> )}
       </Container>
    </div>
   )
