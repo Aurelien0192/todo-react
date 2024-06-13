@@ -13,8 +13,15 @@ export const CardsTask : React.FC<taskProps> = (props)  => {
 
     function changeStatus(id: number, tasklist : Array<task>){
         const taskListTabInt :Array<task> = [...tasklist]
-        const index : number= taskListTabInt.findIndex(((e) => {e.id === id}))
+        const index : number= taskListTabInt.findIndex((e) => e.id === id)
         taskListTabInt[index].status = true
+        props.changeTaskList(taskListTabInt)
+    }
+
+    function suppr (id: number, tasklist: Array<task>){
+        const taskListTabInt :Array<task> = [...tasklist]
+        const index : number= taskListTabInt.findIndex((e) => e.id === id)
+        taskListTabInt.splice(index,1)
         props.changeTaskList(taskListTabInt)
     }
 
@@ -25,6 +32,7 @@ export const CardsTask : React.FC<taskProps> = (props)  => {
                 <p>statut : {props.status? "Terminé" : "En cours"}</p>
             </div>
             <Button onClick={(e) => changeStatus(props.id,props.taskList)}>Terminer</Button>
+            <Button onClick={(e) => suppr(props.id, props.taskList)}>Supprimer</Button>
         </div>
     )
 }
