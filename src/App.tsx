@@ -39,7 +39,7 @@ export function App() {
    <div>
       <Group className='flex w-fit mx-auto my-10'>
         <Input id="input" className='border' placeholder="Nouvelle tâche" onChange={(e) => inputChange(e.currentTarget.value)}></Input>
-        <Button onClick={(e) => addTaskList(inputValue as string)}>Ajouter Tâche</Button>
+        <Button onClick={() => addTaskList(inputValue as string)}>Ajouter Tâche</Button>
       </Group>
       <Container size="xs">
         {tasklist.map((e, index) =><CardsTask key={index} changeTaskList={changeTaskList} taskList={tasklist} id={e.id} description={e.description} status={e.status}></CardsTask> )}
