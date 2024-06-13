@@ -12,12 +12,13 @@ type taskProps = {
 export const CardsTask : React.FC<taskProps> = (props)  => {
 
     function changeStatus(id: number, tasklist : Array<task>){
-        props.changeTaskList(tasklist.map((e) => {
+        props.changeTaskList(tasklist.map((e) => 
             e.id === id && {...e, status : true}
-        }))
+        ))
     }
 
     function suppr (id: number, tasklist: Array<task>){
+        console.log(id)
         props.changeTaskList(tasklist.filter((e)=> {
             e.id != id
         }))
