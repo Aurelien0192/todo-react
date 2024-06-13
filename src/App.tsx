@@ -5,7 +5,7 @@ import { CardsTask } from './cardsTask'
 export type task = {
   id : number,
   description : string,
-  status : boolean,
+  status : boolean
   }
 
 export function App() {
@@ -40,10 +40,8 @@ export function App() {
         <Button onClick={() => addTaskList(inputValue as string)}>Ajouter Tâche</Button>
       </Group>
       <Container size="xs">
-        {tasklist.map((e, index) =><CardsTask key={index} changeTaskList={changeTaskList} taskList={tasklist} id={e.id} description={e.description} status={e.status}></CardsTask> )}
+        {tasklist.map((e, index) =><CardsTask key={index} changeTaskList={changeTaskList} taskList={tasklist} task={e}></CardsTask> )}
       </Container>
    </div>
   )
 }
-
-export default App
