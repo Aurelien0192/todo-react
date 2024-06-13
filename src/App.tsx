@@ -19,9 +19,7 @@ export function App() {
       description : taskDescribe,
       status : false
     }
-    const taskTabInt = tasklist
-    taskTabInt.push(task)
-    setTaskList(taskTabInt)
+    setTaskList([...tasklist, task])
     setInputValue("")
     const input: HTMLInputElement = document.getElementById("input") as HTMLInputElement
     input.value = ""
